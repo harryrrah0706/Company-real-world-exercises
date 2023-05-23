@@ -11,7 +11,7 @@ df['Trade date'] = pd.to_datetime(df['Trade date'])
 df['Expected Settlement Date'] = df.apply(
     lambda row: row['Trade date'] + pd.DateOffset(days=2) if row.CSD == 'CREST' else row['Trade date'] + pd.DateOffset(
         days=3), axis=1)
-
+print(df)
 # Sort by Expected Settlement Date
 df = df.sort_values(by='Expected Settlement Date')
 
